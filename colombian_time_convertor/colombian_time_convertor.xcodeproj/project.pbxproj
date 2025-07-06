@@ -1,0 +1,593 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D58245342E1B23CA00A041BE /* colombian_time_convertorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58245332E1B23CA00A041BE /* colombian_time_convertorApp.swift */; };
+		D58245362E1B23CA00A041BE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58245352E1B23CA00A041BE /* ContentView.swift */; };
+		D58245382E1B23CB00A041BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D58245372E1B23CB00A041BE /* Assets.xcassets */; };
+		D582453B2E1B23CB00A041BE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D582453A2E1B23CB00A041BE /* Preview Assets.xcassets */; };
+		D58245452E1B23CC00A041BE /* colombian_time_convertorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58245442E1B23CC00A041BE /* colombian_time_convertorTests.swift */; };
+		D582454F2E1B23CC00A041BE /* colombian_time_convertorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D582454E2E1B23CC00A041BE /* colombian_time_convertorUITests.swift */; };
+		D58245512E1B23CC00A041BE /* colombian_time_convertorUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58245502E1B23CC00A041BE /* colombian_time_convertorUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D58245412E1B23CC00A041BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D58245282E1B23C900A041BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D582452F2E1B23CA00A041BE;
+			remoteInfo = colombian_time_convertor;
+		};
+		D582454B2E1B23CC00A041BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D58245282E1B23C900A041BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D582452F2E1B23CA00A041BE;
+			remoteInfo = colombian_time_convertor;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D58245302E1B23CA00A041BE /* colombian_time_convertor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = colombian_time_convertor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D58245332E1B23CA00A041BE /* colombian_time_convertorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colombian_time_convertorApp.swift; sourceTree = "<group>"; };
+		D58245352E1B23CA00A041BE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D58245372E1B23CB00A041BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D582453A2E1B23CB00A041BE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D58245402E1B23CC00A041BE /* colombian_time_convertorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = colombian_time_convertorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D58245442E1B23CC00A041BE /* colombian_time_convertorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colombian_time_convertorTests.swift; sourceTree = "<group>"; };
+		D582454A2E1B23CC00A041BE /* colombian_time_convertorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = colombian_time_convertorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D582454E2E1B23CC00A041BE /* colombian_time_convertorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colombian_time_convertorUITests.swift; sourceTree = "<group>"; };
+		D58245502E1B23CC00A041BE /* colombian_time_convertorUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colombian_time_convertorUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D582452D2E1B23CA00A041BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D582453D2E1B23CC00A041BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D58245472E1B23CC00A041BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D58245272E1B23C900A041BE = {
+			isa = PBXGroup;
+			children = (
+				D58245322E1B23CA00A041BE /* colombian_time_convertor */,
+				D58245432E1B23CC00A041BE /* colombian_time_convertorTests */,
+				D582454D2E1B23CC00A041BE /* colombian_time_convertorUITests */,
+				D58245312E1B23CA00A041BE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D58245312E1B23CA00A041BE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D58245302E1B23CA00A041BE /* colombian_time_convertor.app */,
+				D58245402E1B23CC00A041BE /* colombian_time_convertorTests.xctest */,
+				D582454A2E1B23CC00A041BE /* colombian_time_convertorUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D58245322E1B23CA00A041BE /* colombian_time_convertor */ = {
+			isa = PBXGroup;
+			children = (
+				D58245332E1B23CA00A041BE /* colombian_time_convertorApp.swift */,
+				D58245352E1B23CA00A041BE /* ContentView.swift */,
+				D58245372E1B23CB00A041BE /* Assets.xcassets */,
+				D58245392E1B23CB00A041BE /* Preview Content */,
+			);
+			path = colombian_time_convertor;
+			sourceTree = "<group>";
+		};
+		D58245392E1B23CB00A041BE /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D582453A2E1B23CB00A041BE /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D58245432E1B23CC00A041BE /* colombian_time_convertorTests */ = {
+			isa = PBXGroup;
+			children = (
+				D58245442E1B23CC00A041BE /* colombian_time_convertorTests.swift */,
+			);
+			path = colombian_time_convertorTests;
+			sourceTree = "<group>";
+		};
+		D582454D2E1B23CC00A041BE /* colombian_time_convertorUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D582454E2E1B23CC00A041BE /* colombian_time_convertorUITests.swift */,
+				D58245502E1B23CC00A041BE /* colombian_time_convertorUITestsLaunchTests.swift */,
+			);
+			path = colombian_time_convertorUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D582452F2E1B23CA00A041BE /* colombian_time_convertor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D58245542E1B23CC00A041BE /* Build configuration list for PBXNativeTarget "colombian_time_convertor" */;
+			buildPhases = (
+				D582452C2E1B23CA00A041BE /* Sources */,
+				D582452D2E1B23CA00A041BE /* Frameworks */,
+				D582452E2E1B23CA00A041BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = colombian_time_convertor;
+			productName = colombian_time_convertor;
+			productReference = D58245302E1B23CA00A041BE /* colombian_time_convertor.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D582453F2E1B23CC00A041BE /* colombian_time_convertorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D58245572E1B23CC00A041BE /* Build configuration list for PBXNativeTarget "colombian_time_convertorTests" */;
+			buildPhases = (
+				D582453C2E1B23CC00A041BE /* Sources */,
+				D582453D2E1B23CC00A041BE /* Frameworks */,
+				D582453E2E1B23CC00A041BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D58245422E1B23CC00A041BE /* PBXTargetDependency */,
+			);
+			name = colombian_time_convertorTests;
+			productName = colombian_time_convertorTests;
+			productReference = D58245402E1B23CC00A041BE /* colombian_time_convertorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D58245492E1B23CC00A041BE /* colombian_time_convertorUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D582455A2E1B23CC00A041BE /* Build configuration list for PBXNativeTarget "colombian_time_convertorUITests" */;
+			buildPhases = (
+				D58245462E1B23CC00A041BE /* Sources */,
+				D58245472E1B23CC00A041BE /* Frameworks */,
+				D58245482E1B23CC00A041BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D582454C2E1B23CC00A041BE /* PBXTargetDependency */,
+			);
+			name = colombian_time_convertorUITests;
+			productName = colombian_time_convertorUITests;
+			productReference = D582454A2E1B23CC00A041BE /* colombian_time_convertorUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D58245282E1B23C900A041BE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					D582452F2E1B23CA00A041BE = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					D582453F2E1B23CC00A041BE = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = D582452F2E1B23CA00A041BE;
+					};
+					D58245492E1B23CC00A041BE = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = D582452F2E1B23CA00A041BE;
+					};
+				};
+			};
+			buildConfigurationList = D582452B2E1B23C900A041BE /* Build configuration list for PBXProject "colombian_time_convertor" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D58245272E1B23C900A041BE;
+			productRefGroup = D58245312E1B23CA00A041BE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D582452F2E1B23CA00A041BE /* colombian_time_convertor */,
+				D582453F2E1B23CC00A041BE /* colombian_time_convertorTests */,
+				D58245492E1B23CC00A041BE /* colombian_time_convertorUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D582452E2E1B23CA00A041BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D582453B2E1B23CB00A041BE /* Preview Assets.xcassets in Resources */,
+				D58245382E1B23CB00A041BE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D582453E2E1B23CC00A041BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D58245482E1B23CC00A041BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D582452C2E1B23CA00A041BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D58245362E1B23CA00A041BE /* ContentView.swift in Sources */,
+				D58245342E1B23CA00A041BE /* colombian_time_convertorApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D582453C2E1B23CC00A041BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D58245452E1B23CC00A041BE /* colombian_time_convertorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D58245462E1B23CC00A041BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D582454F2E1B23CC00A041BE /* colombian_time_convertorUITests.swift in Sources */,
+				D58245512E1B23CC00A041BE /* colombian_time_convertorUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D58245422E1B23CC00A041BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D582452F2E1B23CA00A041BE /* colombian_time_convertor */;
+			targetProxy = D58245412E1B23CC00A041BE /* PBXContainerItemProxy */;
+		};
+		D582454C2E1B23CC00A041BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D582452F2E1B23CA00A041BE /* colombian_time_convertor */;
+			targetProxy = D582454B2E1B23CC00A041BE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D58245522E1B23CC00A041BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D58245532E1B23CC00A041BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D58245552E1B23CC00A041BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"colombian_time_convertor/Preview Content\"";
+				DEVELOPMENT_TEAM = A2VK6ZQZPP;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "trans-action-apps.colombian-time-convertor";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D58245562E1B23CC00A041BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"colombian_time_convertor/Preview Content\"";
+				DEVELOPMENT_TEAM = A2VK6ZQZPP;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "trans-action-apps.colombian-time-convertor";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D58245582E1B23CC00A041BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A2VK6ZQZPP;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "trans-action-apps.colombian-time-convertorTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/colombian_time_convertor.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/colombian_time_convertor";
+			};
+			name = Debug;
+		};
+		D58245592E1B23CC00A041BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A2VK6ZQZPP;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "trans-action-apps.colombian-time-convertorTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/colombian_time_convertor.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/colombian_time_convertor";
+			};
+			name = Release;
+		};
+		D582455B2E1B23CC00A041BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A2VK6ZQZPP;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "trans-action-apps.colombian-time-convertorUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = colombian_time_convertor;
+			};
+			name = Debug;
+		};
+		D582455C2E1B23CC00A041BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A2VK6ZQZPP;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "trans-action-apps.colombian-time-convertorUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = colombian_time_convertor;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D582452B2E1B23C900A041BE /* Build configuration list for PBXProject "colombian_time_convertor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D58245522E1B23CC00A041BE /* Debug */,
+				D58245532E1B23CC00A041BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D58245542E1B23CC00A041BE /* Build configuration list for PBXNativeTarget "colombian_time_convertor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D58245552E1B23CC00A041BE /* Debug */,
+				D58245562E1B23CC00A041BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D58245572E1B23CC00A041BE /* Build configuration list for PBXNativeTarget "colombian_time_convertorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D58245582E1B23CC00A041BE /* Debug */,
+				D58245592E1B23CC00A041BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D582455A2E1B23CC00A041BE /* Build configuration list for PBXNativeTarget "colombian_time_convertorUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D582455B2E1B23CC00A041BE /* Debug */,
+				D582455C2E1B23CC00A041BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D58245282E1B23C900A041BE /* Project object */;
+}
