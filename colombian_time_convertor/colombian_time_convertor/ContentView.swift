@@ -1,54 +1,248 @@
 //
 //  ContentView.swift
-//  colombian_time_convertor
+//  cultural_time_convertor
 //
 //  Created by Henry Tran on 7/6/25.
 //
 
 import SwiftUI
 
+enum CulturalFamily: String, CaseIterable {
+    case colombian = "Colombian"
+    case vietnamese = "Vietnamese"
+    case jewish = "Jewish"
+    
+    var emoji: String {
+        switch self {
+        case .colombian: return "🇨🇴"
+        case .vietnamese: return "🇻🇳"
+        case .jewish: return "✡️"
+        }
+    }
+    
+    var subtitle: String {
+        switch self {
+        case .colombian: return "¡Ya voy, ya voy!"
+        case .vietnamese: return "Coming Soon"
+        case .jewish: return "Coming Soon"
+        }
+    }
+}
+
 enum EventType: String, CaseIterable {
-    case dinner = "Dinner"
+    case meal = "meal"
     case movies = "Movies"
     case date = "Date"
-    case beachVacation = "Beach Vacation"
+    case vacation = "Vacation"
+    case shopping = "Shopping"
     case wedding = "Wedding"
-    case elegantNight = "Special Occasion"
+    case specialOccasion = "Special Occasion"
     case court = "Court"
     
     var isInformal: Bool {
         switch self {
-        case .dinner, .movies, .date, .beachVacation:
+        case .meal, .movies, .date, .shopping:
             return true
-        case .wedding, .elegantNight, .court:
+        case .wedding, .specialOccasion, .court, .vacation:
             return false
         }
     }
     
     var emoji: String {
         switch self {
-        case .dinner: return "🍽️"
+        case .meal: return "🍽️"
         case .movies: return "🎬"
         case .date: return "💕"
-        case .beachVacation: return "🏖️"
+        case .shopping: return "🛍️"
+        case .vacation: return "🏖️"
         case .wedding: return "💒"
-        case .elegantNight: return "🌃"
+        case .specialOccasion: return "🌃"
         case .court: return "⚖️"
         }
     }
 }
 
 struct ContentView: View {
-    @State private var currentStep = 1
+    @State private var currentStep = 0  // Start at step 0 for family selection
+    @State private var selectedFamily: CulturalFamily? = nil
     @State private var targetTime = Date()
     @State private var totalParticipants = 1
     @State private var colombianParticipants = 0
-    @State private var selectedEventType: EventType = .dinner
+    @State private var selectedEventType: EventType = .meal
     @State private var hasSpicyColombianWomen = false
     @State private var calculatedTime = Date()
     @State private var showResult = false
     
-    // Updated Colombian inspired colors for yellow background
+    var body: some View {
+        if currentStep == 0 {
+            FamilySelectionView(onFamilySelected: { family in
+                selectedFamily = family
+                if family == .colombian {
+                    withAnimation {
+                        currentStep = 1
+                    }
+                }
+                // For Vietnamese and Jewish, they don't navigate anywhere yet
+            })
+        } else if selectedFamily == .colombian {
+            ColombianTimeCalculatorView(
+                currentStep: $currentStep,
+                targetTime: $targetTime,
+                totalParticipants: $totalParticipants,
+                colombianParticipants: $colombianParticipants,
+                selectedEventType: $selectedEventType,
+                hasSpicyColombianWomen: $hasSpicyColombianWomen,
+                calculatedTime: $calculatedTime,
+                showResult: $showResult,
+                onBack: {
+                    withAnimation {
+                        currentStep = 0
+                        selectedFamily = nil
+                        // Reset all values
+                        totalParticipants = 1
+                        colombianParticipants = 0
+                        hasSpicyColombianWomen = false
+                        selectedEventType = .meal
+                        targetTime = Date()
+                        calculatedTime = Date()
+                        showResult = false
+                    }
+                }
+            )
+        }
+    }
+}
+
+struct FamilySelectionView: View {
+    let onFamilySelected: (CulturalFamily) -> Void
+    
+    // Universal colors for the home page
+    let primaryColor = Color(hex: "#2C3E50")
+    let accentColor = Color(hex: "#3498DB")
+    let backgroundColor = Color(hex: "#ECF0F1")
+    let cardBackground = Color.white
+    
+    var body: some View {
+        ZStack {
+            // Background gradient
+            LinearGradient(
+                gradient: Gradient(colors: [backgroundColor, backgroundColor.opacity(0.8)]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .ignoresSafeArea()
+            
+            VStack(spacing: 40) {
+                // Header
+                VStack(spacing: 16) {
+                    Text("Cultural Family Time")
+                        .font(.largeTitle.bold())
+                        .foregroundColor(primaryColor)
+                    
+                    Text("Calculator")
+                        .font(.title2)
+                        .foregroundColor(primaryColor.opacity(0.8))
+                    
+                    Text("Select your family culture")
+                        .font(.subheadline)
+                        .foregroundColor(primaryColor.opacity(0.6))
+                        .multilineTextAlignment(.center)
+                }
+                .padding(.top, 40)
+                
+                // Family Selection Buttons
+                VStack(spacing: 20) {
+                    ForEach(CulturalFamily.allCases, id: \.self) { family in
+                        FamilyButton(
+                            family: family,
+                            isEnabled: family == .colombian,
+                            onTap: { onFamilySelected(family) }
+                        )
+                    }
+                }
+                .padding(.horizontal, 30)
+                
+                Spacer()
+                
+                // Footer
+                Text("More families coming soon!")
+                    .font(.caption)
+                    .foregroundColor(primaryColor.opacity(0.5))
+                    .padding(.bottom, 30)
+            }
+        }
+    }
+}
+
+struct FamilyButton: View {
+    let family: CulturalFamily
+    let isEnabled: Bool
+    let onTap: () -> Void
+    
+    // Universal button styling
+    let buttonColor = Color(hex: "#3498DB")
+    let textColor = Color.white
+    let disabledColor = Color.gray.opacity(0.2)
+    let disabledTextColor = Color.gray
+    
+    var body: some View {
+        Button(action: onTap) {
+            HStack(spacing: 16) {
+                Text(family.emoji)
+                    .font(.system(size: 40))
+                
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(family.rawValue)
+                        .font(.title2.bold())
+                        .foregroundColor(isEnabled ? textColor : disabledTextColor)
+                    
+                    Text(family.subtitle)
+                        .font(.subheadline)
+                        .foregroundColor(isEnabled ? textColor.opacity(0.8) : disabledTextColor.opacity(0.6))
+                }
+                
+                Spacer()
+                
+                if isEnabled {
+                    Image(systemName: "arrow.right.circle.fill")
+                        .font(.title2)
+                        .foregroundColor(textColor)
+                } else {
+                    Image(systemName: "lock.circle.fill")
+                        .font(.title2)
+                        .foregroundColor(disabledTextColor)
+                }
+            }
+            .padding(20)
+            .background(
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(isEnabled ? buttonColor : disabledColor)
+                    .shadow(
+                        color: isEnabled ? buttonColor.opacity(0.3) : .clear,
+                        radius: 8,
+                        x: 0,
+                        y: 4
+                    )
+            )
+        }
+        .disabled(!isEnabled)
+        .scaleEffect(isEnabled ? 1.0 : 0.95)
+        .animation(.easeInOut(duration: 0.1), value: isEnabled)
+    }
+}
+
+struct ColombianTimeCalculatorView: View {
+    @Binding var currentStep: Int
+    @Binding var targetTime: Date
+    @Binding var totalParticipants: Int
+    @Binding var colombianParticipants: Int
+    @Binding var selectedEventType: EventType
+    @Binding var hasSpicyColombianWomen: Bool
+    @Binding var calculatedTime: Date
+    @Binding var showResult: Bool
+    let onBack: () -> Void
+    
+    // Colombian inspired colors for yellow background
     let colombianYellow = Color(hex: "#FFD700")
     let darkColombianYellow = Color(hex: "#FFC107")
     let colombianRed = Color(hex: "#DA291C")
@@ -109,6 +303,21 @@ struct ContentView: View {
     // MARK: - Header View
     private var headerView: some View {
         VStack(spacing: 16) {
+            // Back button and title
+            HStack {
+                Button(action: onBack) {
+                    HStack(spacing: 8) {
+                        Image(systemName: "chevron.left")
+                        Text("Families")
+                    }
+                    .font(.headline)
+                    .foregroundColor(andeanBlue)
+                }
+                
+                Spacer()
+            }
+            .padding(.horizontal, 20)
+            
             // Title
             VStack(spacing: 8) {
                 Text("Colombian Time")
@@ -166,6 +375,7 @@ struct ContentView: View {
                         .fill(lightYellow)
                         .shadow(color: coffeeBrown.opacity(0.2), radius: 8, x: 0, y: 4)
                 )
+                Spacer()
             }
             
             nextButton(enabled: true) {
@@ -173,8 +383,8 @@ struct ContentView: View {
                     currentStep = 2
                 }
             }
-            
-            Spacer()
+            .frame(maxHeight: .infinity, alignment: .bottom)
+            .padding(.bottom, 60)
         }
         .padding(.horizontal, 20)
     }
@@ -188,11 +398,6 @@ struct ContentView: View {
                 Image(systemName: "list.bullet.circle.fill")
                     .font(.system(size: 60))
                     .foregroundColor(emeraldGreen)
-                
-                Text("What type of event?")
-                    .font(.title2.bold())
-                    .foregroundColor(coffeeBrown)
-                    .multilineTextAlignment(.center)
                 
                 VStack(spacing: 16) {
                     Text("Selected Event")
@@ -241,6 +446,7 @@ struct ContentView: View {
                                 )
                         )
                     }
+                    
                 }
                 .padding()
                 .background(
@@ -248,7 +454,19 @@ struct ContentView: View {
                         .fill(lightYellow)
                         .shadow(color: coffeeBrown.opacity(0.2), radius: 8, x: 0, y: 4)
                 )
+            
             }
+            
+            Text(eventTypeMessage)
+                .font(.subheadline)
+                .foregroundColor(selectedEventType == .court ? colombianRed : caribbeanCoral)
+                .multilineTextAlignment(.center)
+                .italic()
+                .padding(.horizontal)
+                .transition(.opacity)
+            
+            Spacer()
+            Spacer()
             
             HStack(spacing: 16) {
                 backButton {
@@ -263,26 +481,21 @@ struct ContentView: View {
                     }
                 }
             }
-            
-            Spacer()
+            .frame(maxHeight: .infinity, alignment: .bottom)
+            .padding(.bottom, 60)
         }
         .padding(.horizontal, 20)
     }
     
     // MARK: - Step 3: Total Participants
     private var step3TotalParticipants: some View {
-        VStack(spacing: 32) {
+        VStack(spacing: 30) {
             Spacer()
             
             VStack(spacing: 24) {
                 Image(systemName: "person.3.fill")
                     .font(.system(size: 60))
                     .foregroundColor(caribbeanCoral)
-                
-                Text("How many people total?")
-                    .font(.title2.bold())
-                    .foregroundColor(coffeeBrown)
-                    .multilineTextAlignment(.center)
                 
                 VStack(spacing: 20) {
                     Text(totalParticipants >= 20 ? "20+" : "\(totalParticipants)")
@@ -312,18 +525,7 @@ struct ContentView: View {
                                 }
                             }
                         
-                        VStack(spacing: 8) {
-                            Button(action: {
-                                if totalParticipants < 20 {
-                                    totalParticipants += 1
-                                }
-                            }) {
-                                Image(systemName: "plus.circle.fill")
-                                    .font(.system(size: 32))
-                                    .foregroundColor(totalParticipants < 20 ? emeraldGreen : coffeeBrown.opacity(0.5))
-                            }
-                            .disabled(totalParticipants >= 20)
-                            
+                        HStack(spacing: 8) {
                             Button(action: {
                                 if totalParticipants > 1 {
                                     totalParticipants -= 1
@@ -337,6 +539,18 @@ struct ContentView: View {
                                     .foregroundColor(totalParticipants > 1 ? colombianRed : coffeeBrown.opacity(0.5))
                             }
                             .disabled(totalParticipants <= 1)
+                            
+                            Button(action: {
+                                if totalParticipants < 20 {
+                                    totalParticipants += 1
+                                }
+                            }) {
+                                Image(systemName: "plus.circle.fill")
+                                    .font(.system(size: 32))
+                                    .foregroundColor(totalParticipants < 20 ? emeraldGreen : coffeeBrown.opacity(0.5))
+                            }
+                            .disabled(totalParticipants >= 20)
+                            
                         }
                     }
                     
@@ -369,119 +583,135 @@ struct ContentView: View {
                     }
                 }
             }
+            .frame(maxHeight: .infinity, alignment: .bottom)
+            .padding(.bottom, 60)
         }
         .padding(.horizontal, 20)
     }
     
     // MARK: - Step 4: Colombian Count
-    private var step4ColombianCount: some View {
-        VStack(spacing: 32) {
-            Spacer()
-            
-            VStack(spacing: 24) {
-                Text("🇨🇴")
-                    .font(.system(size: 60))
+        private var step4ColombianCount: some View {
+            VStack(spacing: 32) {
                 
-                VStack(spacing: 8) {
-                    Text("The important question...")
-                        .font(.title3)
-                        .foregroundColor(coffeeBrown.opacity(0.7))
-                        .multilineTextAlignment(.center)
+                VStack(spacing: 24) {
+                    Text("🇨🇴")
+                        .font(.system(size: 60))
                     
-                    Text("How many are Colombian?")
-                        .font(.title2.bold())
-                        .foregroundColor(coffeeBrown)
-                        .multilineTextAlignment(.center)
-                }
-                
-                VStack(spacing: 20) {
-                    Text("\(colombianParticipants)")
-                        .font(.system(size: 72, weight: .bold))
-                        .foregroundColor(andeanBlue)
+                    VStack(spacing: 8) {
+                        Text("How many are Colombian?")
+                            .font(.title2.bold())
+                            .foregroundColor(coffeeBrown)
+                            .multilineTextAlignment(.center)
+                    }
                     
-                    Text("out of \(totalParticipants)")
-                        .font(.title3)
-                        .foregroundColor(coffeeBrown)
-                    
-                    HStack(spacing: 20) {
-                        Button(action: {
-                            if colombianParticipants > 0 {
-                                colombianParticipants -= 1
-                            }
-                        }) {
-                            Image(systemName: "minus.circle.fill")
-                                .font(.system(size: 44))
-                                .foregroundColor(colombianParticipants > 0 ? colombianRed : coffeeBrown.opacity(0.5))
-                        }
-                        .disabled(colombianParticipants <= 0)
+                    VStack(spacing: 20) {
+                        Text("\(colombianParticipants)")
+                            .font(.system(size: 72, weight: .bold))
+                            .foregroundColor(andeanBlue)
                         
-                        Button(action: {
-                            if colombianParticipants < totalParticipants {
-                                colombianParticipants += 1
+                        Text("out of \(totalParticipants)")
+                            .font(.title3)
+                            .foregroundColor(coffeeBrown)
+                        
+                        HStack(spacing: 20) {
+                            TextField("", value: $colombianParticipants, format: .number)
+                                .keyboardType(.numberPad)
+                                .textFieldStyle(RoundedBorderTextFieldStyle())
+                                .frame(width: 100)
+                                .font(.title2)
+                                .multilineTextAlignment(.center)
+                                .onChange(of: colombianParticipants) { _, newValue in
+                                    if newValue < 0 {
+                                        colombianParticipants = 0
+                                    } else if newValue > totalParticipants {
+                                        colombianParticipants = totalParticipants
+                                    }
+                                }
+                            
+                            HStack(spacing: 8) {
+                                Button(action: {
+                                    if colombianParticipants > 0 {
+                                        colombianParticipants -= 1
+                                    }
+                                }) {
+                                    Image(systemName: "minus.circle.fill")
+                                        .font(.system(size: 32))
+                                        .foregroundColor(colombianParticipants > 0 ? colombianRed : coffeeBrown.opacity(0.5))
+                                }
+                                .disabled(colombianParticipants <= 0)
+                                
+                                Button(action: {
+                                    if colombianParticipants < totalParticipants {
+                                        colombianParticipants += 1
+                                    }
+                                }) {
+                                    Image(systemName: "plus.circle.fill")
+                                        .font(.system(size: 32))
+                                        .foregroundColor(colombianParticipants < totalParticipants ? emeraldGreen : coffeeBrown.opacity(0.5))
+                                }
+                                .disabled(colombianParticipants >= totalParticipants)
                             }
-                        }) {
-                            Image(systemName: "plus.circle.fill")
-                                .font(.system(size: 44))
-                                .foregroundColor(colombianParticipants < totalParticipants ? emeraldGreen : coffeeBrown.opacity(0.5))
                         }
-                        .disabled(colombianParticipants >= totalParticipants)
                     }
-                }
-                .padding()
-                .background(
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(lightYellow)
-                        .shadow(color: coffeeBrown.opacity(0.2), radius: 8, x: 0, y: 4)
-                )
-                
-                if colombianParticipants > 0 {
-                    Text("😅 Ah, now we're getting somewhere!")
-                        .font(.subheadline)
-                        .foregroundColor(caribbeanCoral)
-                        .italic()
-                        .transition(.opacity)
-                }
-            }
-            
-            Spacer()
-            
-            HStack(spacing: 16) {
-                backButton {
-                    withAnimation {
-                        currentStep = 3
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 16)
+                            .fill(lightYellow)
+                            .shadow(color: coffeeBrown.opacity(0.2), radius: 8, x: 0, y: 4)
+                    )
+                    
+                    if colombianParticipants > 0 {
+                        Text("😅 Ah, now we're getting somewhere!")
+                            .font(.subheadline)
+                            .foregroundColor(caribbeanCoral)
+                            .italic()
+                            .transition(.opacity)
                     }
                 }
                 
-                nextButton(enabled: true) {
-                    withAnimation {
-                        currentStep = 5
+                Spacer()
+                
+                HStack(spacing: 16) {
+                    backButton {
+                        withAnimation {
+                            currentStep = 3
+                        }
+                    }
+                    
+                    nextButton(enabled: true) {
+                        withAnimation {
+                            currentStep = 5
+                        }
                     }
                 }
+                .frame(maxHeight: .infinity, alignment: .bottom)
+                .padding(.bottom, 60)
             }
+            .padding(.horizontal, 20)
         }
-        .padding(.horizontal, 20)
-    }
     
     // MARK: - Step 5: Spicy Colombian Women
     private var step5SpicyColombianWomen: some View {
         VStack(spacing: 32) {
-            Spacer()
-            
             VStack(spacing: 24) {
                 Text("🌶️👩🏽‍🦱")
                     .font(.system(size: 60))
+                    .frame(maxHeight: .infinity, alignment: .bottom)
+                    .padding(.top, 30)
                 
                 VStack(spacing: 8) {
-                    Text("The ULTIMATE question...")
-                        .font(.title3)
-                        .foregroundColor(coffeeBrown.opacity(0.7))
+                    Text("Are there any spicy, hot-blooded")
+                        .font(.title2.bold())
+                        .foregroundColor(coffeeBrown)
                         .multilineTextAlignment(.center)
-                    
-                    Text("Are there any spicy hot-blooded Colombian women in the group?")
+                    Text("Colombian women in the group?")
                         .font(.title2.bold())
                         .foregroundColor(coffeeBrown)
                         .multilineTextAlignment(.center)
                 }
+                .frame(maxHeight: .infinity, alignment: .bottom)
+                .padding(.bottom, 60)
+                
                 
                 VStack(spacing: 20) {
                     HStack(spacing: 20) {
@@ -551,6 +781,7 @@ struct ContentView: View {
             }
             
             Spacer()
+            Spacer()
             
             HStack(spacing: 16) {
                 backButton {
@@ -566,6 +797,9 @@ struct ContentView: View {
                     }
                 }
             }
+            .frame(maxHeight: .infinity, alignment: .bottom)
+            .padding(.bottom, 60)
+    
         }
         .padding(.horizontal, 20)
     }
@@ -655,7 +889,7 @@ struct ContentView: View {
                         totalParticipants = 1
                         colombianParticipants = 0
                         hasSpicyColombianWomen = false
-                        selectedEventType = .dinner
+                        selectedEventType = .meal
                         targetTime = Date()
                         calculatedTime = Date()
                     }
@@ -732,25 +966,60 @@ struct ContentView: View {
     }
     
     // MARK: - Functions
+    private var eventTypeMessage: String {
+        switch selectedEventType {
+        case .meal:
+            return "🍽️ Remember! 'I'm coming in 5 minutes' means 'I haven't even showered yet'"
+        case .movies:
+            return "🎬 Movie night? Hope you bought tickets for the next showing too... just in case!"
+        case .date:
+            return "💕 Oooo! Get comfortable, you're about to learn patience you never knew you had!"
+        case .shopping:
+            return "🛍️ Shopping trip! Time may be on your side here!"
+        case .vacation:
+            return "🏖️ Vacation planning? Good luck!"
+        case .wedding:
+            return "💒 Wedding? The bride will be fashionably late, but I wonder who will be fashionably later!"
+        case .specialOccasion:
+            return "🌃 Might be able to get some errands done"
+        case .court:
+            return "⚖️ Plan accordingly!"
+        }
+    }
+    
     private func calculateColombianTime() {
         var delayMinutes = 0
+        var minAdd = 0
         
         // Only apply Colombian time delay if there are more than 1 Colombian participants
         if colombianParticipants > 0 {
             if selectedEventType.isInformal {
                 // Informal events logic
-                if totalParticipants < 2 {
-                    delayMinutes = 8
+                if colombianParticipants < 2 {
+                    if selectedEventType.rawValue == "Shopping" {
+                        delayMinutes = 10
+                    } else {
+                        delayMinutes = 30
+                    }
                 } else {
-                    delayMinutes = 8 + (totalParticipants - 1) * 5
+                    if selectedEventType.rawValue == "Shopping" {
+                        minAdd = hasSpicyColombianWomen ? 5 : 3
+                        delayMinutes = 10 + (colombianParticipants) * minAdd
+                    } else {
+                        delayMinutes = 30 + (colombianParticipants) * 5
+                    }
                 }
                 
                 if hasSpicyColombianWomen {
-                    delayMinutes += 15
+                    if selectedEventType.rawValue == "Shopping" {
+                        delayMinutes += 0
+                    } else {
+                        delayMinutes += 15
+                    }
                 }
             } else {
                 // Formal events logic
-                delayMinutes = 60 + (totalParticipants * 3)
+                delayMinutes = 44 + (colombianParticipants * 4)
                 
                 if hasSpicyColombianWomen {
                     delayMinutes += 43
@@ -771,17 +1040,17 @@ struct ContentView: View {
         var breakdown = ""
         
         if selectedEventType.isInformal {
-            if totalParticipants < 2 {
-                breakdown = "Base: 8 minutes"
+            if colombianParticipants < 2 {
+                breakdown = "Base: 30 minutes"
             } else {
-                breakdown = "Base: 8 min + \(totalParticipants - 1) × 5 min"
+                breakdown = "Base: 30 min + \(colombianParticipants) × 5 min"
             }
             
             if hasSpicyColombianWomen {
-                breakdown += " + 15 min"
+                breakdown += " + 20 min"
             }
         } else {
-            breakdown = "Base: 60 min + \(totalParticipants) × 3 min"
+            breakdown = "Base: 44 min + \(colombianParticipants) × 4 min"
             
             if hasSpicyColombianWomen {
                 breakdown += " + 43 min"
@@ -855,6 +1124,35 @@ extension Color {
     }
 }
 
-#Preview {
+#Preview("Step 1 - Time Selection") {
     ContentView()
 }
+
+/*
+#Preview("Step 1 - Time Selection") {
+    ContentView()
+}
+
+#Preview("Step 2 - Event Type") {
+    ContentView(currentStep: 2)
+}
+
+#Preview("Step 3 - Total Participants") {
+    ContentView(currentStep: 3)
+}
+
+#Preview("Step 4 - Colombian Count") {
+    ContentView(currentStep: 4)
+}
+
+#Preview("Step 5 - Spicy Question") {
+    ContentView(currentStep: 5)
+}
+
+#Preview("Step 6 - Results") {
+    ContentView(currentStep: 6,
+                totalParticipants: 5,
+                colombianParticipants: 3,
+                selectedEventType: .wedding,
+                hasSpicyColombianWomen: true)
+}*/
